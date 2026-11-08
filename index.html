@@ -1,1 +1,124 @@
-Hello World
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Otto Ops LLC</title>
+  <meta name="description" content="Otto Ops LLC builds practical software, including the Meal Planner app for Android and iOS.">
+  <link rel="canonical" href="https://ottoops.com/">
+  <meta property="og:title" content="Otto Ops LLC">
+  <meta property="og:description" content="Practical software for everyday life.">
+  <meta property="og:url" content="https://ottoops.com/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f5f0;
+      --surface: #ffffff;
+      --text: #1d1f1c;
+      --muted: #5b6058;
+      --accent: #2f6b4f;
+      --line: #e3e0d7;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #141614;
+        --surface: #1c1f1c;
+        --text: #ecebe6;
+        --muted: #a3a89f;
+        --accent: #7fc4a0;
+        --line: #2c302c;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 400 17px/1.6 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+    header { padding: 28px 0; }
+    .brand {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 600;
+      font-size: 20px;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .hero { padding: 56px 0 40px; }
+    h1 {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 600;
+      font-size: clamp(34px, 6vw, 52px);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin: 0 0 18px;
+    }
+    .lede { font-size: 19px; color: var(--muted); max-width: 34em; margin: 0; }
+    h2 {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 14px;
+    }
+    section { padding: 28px 0; border-top: 1px solid var(--line); }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 22px 24px;
+    }
+    .card h3 {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 600;
+      font-size: 22px;
+      margin: 0 0 6px;
+    }
+    .card p { margin: 0; color: var(--muted); }
+    .platforms { margin-top: 12px; font-size: 14px; color: var(--muted); }
+    a { color: var(--accent); }
+    footer { padding: 32px 0 48px; font-size: 14px; color: var(--muted); border-top: 1px solid var(--line); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="/">Otto Ops</a>
+    </header>
+
+    <main>
+      <div class="hero">
+        <h1>Practical software for everyday life.</h1>
+        <p class="lede">Otto Ops LLC is a small software company. We build apps that take
+          the busywork out of running a household.</p>
+      </div>
+
+      <section aria-labelledby="apps">
+        <h2 id="apps">Apps</h2>
+        <div class="card">
+          <h3>Meal Planner</h3>
+          <p>Plan the week's meals with your household, share a recipe library, and turn
+            the plan into a grocery list everyone can check off.</p>
+          <p class="platforms">Android and iOS</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="contact">
+        <h2 id="contact">Contact</h2>
+        <p>Questions, support or feedback: <a href="mailto:info@ottoops.com">info@ottoops.com</a></p>
+      </section>
+    </main>
+
+    <footer>
+      &copy; <span id="year">2026</span> Otto Ops LLC
+    </footer>
+  </div>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
