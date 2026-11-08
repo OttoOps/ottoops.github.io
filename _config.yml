@@ -1,0 +1,9 @@
+# GitHub Pages (legacy build) serves the repo root. Keep project notes and
+# tooling out of the published site.
+exclude:
+  - PRODUCT.md
+  - DESIGN.md
+  - .gitignore
+  - README.md
+  - scripts
+  - docs

@@ -3,122 +3,273 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Otto Ops LLC</title>
-  <meta name="description" content="Otto Ops LLC builds practical software, including the Meal Planner app for Android and iOS.">
+  <title>Paul Otto · Otto Ops LLC</title>
+  <meta name="description" content="Paul Otto builds and runs data, AI and platform systems. Otto Ops LLC is his company and the maker of Meal Planner for Android and iOS.">
   <link rel="canonical" href="https://ottoops.com/">
-  <meta property="og:title" content="Otto Ops LLC">
-  <meta property="og:description" content="Practical software for everyday life.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Paul Otto · Otto Ops LLC">
+  <meta property="og:description" content="Data, AI and platform engineering. Meal Planner, Habit Quest and ClearBridge.">
   <meta property="og:url" content="https://ottoops.com/">
+  <meta property="og:image" content="https://ottoops.com/assets/paul-otto.jpg">
+  <meta name="theme-color" content="#f7f7f2" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121513" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #f7f5f0;
-      --surface: #ffffff;
-      --text: #1d1f1c;
-      --muted: #5b6058;
-      --accent: #2f6b4f;
-      --line: #e3e0d7;
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..800;1,100,400..600&display=swap" rel="stylesheet">
+  <link rel="preload" href="/assets/terrain.svg" as="fetch" crossorigin>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script>
+    try {
+      var t = localStorage.getItem("theme");
+      if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
+  <script src="/assets/site.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Otto Ops LLC",
+    "url": "https://ottoops.com/",
+    "email": "info@ottoops.com",
+    "founder": {
+      "@type": "Person",
+      "name": "Paul Otto",
+      "url": "https://ottoops.com/resume/",
+      "sameAs": ["https://github.com/potto007"]
     }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #141614;
-        --surface: #1c1f1c;
-        --text: #ecebe6;
-        --muted: #a3a89f;
-        --accent: #7fc4a0;
-        --line: #2c302c;
-      }
-    }
-    * { box-sizing: border-box; }
-    html { -webkit-text-size-adjust: 100%; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font: 400 17px/1.6 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
-    }
-    .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
-    header { padding: 28px 0; }
-    .brand {
-      font-family: Fraunces, Georgia, serif;
-      font-weight: 600;
-      font-size: 20px;
-      letter-spacing: -0.01em;
-      color: var(--text);
-      text-decoration: none;
-    }
-    .hero { padding: 56px 0 40px; }
-    h1 {
-      font-family: Fraunces, Georgia, serif;
-      font-weight: 600;
-      font-size: clamp(34px, 6vw, 52px);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin: 0 0 18px;
-    }
-    .lede { font-size: 19px; color: var(--muted); max-width: 34em; margin: 0; }
-    h2 {
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin: 0 0 14px;
-    }
-    section { padding: 28px 0; border-top: 1px solid var(--line); }
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 22px 24px;
-    }
-    .card h3 {
-      font-family: Fraunces, Georgia, serif;
-      font-weight: 600;
-      font-size: 22px;
-      margin: 0 0 6px;
-    }
-    .card p { margin: 0; color: var(--muted); }
-    .platforms { margin-top: 12px; font-size: 14px; color: var(--muted); }
-    a { color: var(--accent); }
-    footer { padding: 32px 0 48px; font-size: 14px; color: var(--muted); border-top: 1px solid var(--line); }
-  </style>
+  }
+  </script>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <a class="brand" href="/">Otto Ops</a>
-    </header>
+  <a class="skip" href="#main">Skip to content</a>
 
-    <main>
-      <div class="hero">
-        <h1>Practical software for everyday life.</h1>
-        <p class="lede">Otto Ops LLC is a small software company. We build apps that take
-          the busywork out of running a household.</p>
-      </div>
+  <header class="collar">
+    <a class="wordmark" href="/" aria-label="Otto Ops LLC, home">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 18.5 17H1.5Z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="10" cy="12" r="1.8" fill="currentColor"/></svg>
+      Otto Ops LLC
+    </a>
+    <div class="collar-end">
+      <nav aria-label="Sections">
+        <ul>
+          <li><a href="#now">Now</a></li>
+          <li><a href="#apps">Apps</a></li>
+          <li><a href="#clearbridge">ClearBridge</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="/resume/">Resume</a></li>
+          <li><a href="#github">GitHub</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle hidden>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13Z" fill="currentColor"/></svg>
+        <span data-theme-label>Theme</span>
+      </button>
+    </div>
+  </header>
 
-      <section aria-labelledby="apps">
-        <h2 id="apps">Apps</h2>
-        <div class="card">
-          <h3>Meal Planner</h3>
-          <p>Plan the week's meals with your household, share a recipe library, and turn
-            the plan into a grocery list everyone can check off.</p>
-          <p class="platforms">Android and iOS &middot; <a href="https://mealplanner.ottoops.com/privacy.html">Privacy policy</a> &middot; <a href="https://mealplanner.ottoops.com/delete-account.html">Delete your account</a></p>
+  <div class="sheet">
+    <main id="main">
+      <section class="map" aria-labelledby="hero-title">
+        <div class="map-terrain" data-terrain></div>
+        <p class="map-title lettering"><strong>Otto Ops quadrangle</strong>Colorado<br>7.5-minute series</p>
+        <div class="map-body">
+          <h1 id="hero-title">Paul Otto</h1>
+          <div class="lede-wrap">
+            <p><span class="lede">I build and run data, AI and platform systems, and for most of my career I've carried the pager for what I designed.</span></p>
+            <p><span class="lede">Otto Ops LLC is my company. It makes Meal Planner, a meal planning app for households on Android and iOS.</span></p>
+          </div>
+          <div class="actions">
+            <a class="btn btn-primary" href="mailto:info@ottoops.com">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="4" width="16" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m2.5 5 7.5 6 7.5-6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+              Email info@ottoops.com
+            </a>
+            <a class="btn" href="/resume/">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 2h7l4 4v12H5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 10h6M8 13.5h6" stroke="currentColor" stroke-width="1.6"/></svg>
+              Read my resume
+            </a>
+            <a class="btn" href="https://github.com/potto007">GitHub</a>
+          </div>
         </div>
+        <p class="map-credit">Contours of the Mount Blue Sky area, Clear Creek County, Colorado, 200-foot interval, from USGS 3DEP elevation data via AWS Terrain Tiles.</p>
       </section>
 
-      <section aria-labelledby="contact">
-        <h2 id="contact">Contact</h2>
-        <p>Questions, support or feedback: <a href="mailto:info@ottoops.com">info@ottoops.com</a></p>
-      </section>
+      <div class="route-wrap" data-route-wrap>
+        <div class="route" aria-hidden="true" data-route></div>
+
+        <section class="leg" id="now" aria-labelledby="now-title" data-label="Now">
+          <h2 id="now-title">What I work on now</h2>
+          <p class="intro">I'm a Principal Platform Engineer at Amplify Federal, where I support Second Front and Forterra. From 2020 to 2026 I worked on the US Air Force's Kessel Run program, first at Raft as principal architect for public cloud, then at Clarity leading the SRE team for ADCP.</p>
+          <p>Outside the day job I train and serve open-weight models on a single RTX 5090 through Otto Ops, and I build the apps further down this page.</p>
+
+          <dl class="legend">
+            <div>
+              <svg class="sym" viewBox="0 0 88 28" aria-hidden="true"><path d="M2 14h84" stroke="var(--survey)" stroke-width="2.5"/><path d="M12 9v10M30 9v10M48 9v10M66 9v10M84 9v10" stroke="var(--survey)" stroke-width="1.2"/></svg>
+              <dt>Platform engineering</dt>
+              <dd>Kubernetes, Terraform, ArgoCD and FluxV2, observability on Elastic, and zero trust networking, mostly for military systems.</dd>
+            </div>
+            <div>
+              <svg class="sym" viewBox="0 0 88 28" aria-hidden="true"><path d="M2 20c10-12 20-12 28-4s18 8 26-2 18-10 30 0" fill="none" stroke="var(--contour-index)" stroke-width="2"/><path d="M2 25c10-8 20-8 28-2s18 5 26-1 18-6 30 0" fill="none" stroke="var(--contour)" stroke-width="1"/></svg>
+              <dt>Model training and inference</dt>
+              <dd>Fine-tuning pipelines with SFT, DPO, continued pretraining, SLERP merges and GGUF export, a 4-bit QLoRA harness that fine-tunes a 19B-parameter Gemma 4 mixture-of-experts model on one 32 GB GPU, and llama.cpp serving watched by Prometheus, Grafana and Loki.</dd>
+            </div>
+            <div>
+              <svg class="sym" viewBox="0 0 88 28" aria-hidden="true"><rect x="2" y="4" width="84" height="20" fill="var(--wood)" stroke="var(--wood-ink)" stroke-width="1"/><circle cx="16" cy="14" r="3" fill="var(--wood-ink)"/><circle cx="34" cy="10" r="2.4" fill="var(--wood-ink)"/><circle cx="52" cy="16" r="3" fill="var(--wood-ink)"/><circle cx="70" cy="11" r="2.4" fill="var(--wood-ink)"/></svg>
+              <dt>Data and retrieval</dt>
+              <dd>Knowledge graphs and vector search for retrieval, built on LightRAG with Neo4j, Milvus and bge-m3 embeddings. Before that came years of running MySQL, Galera, Kafka, Hadoop and Druid in production.</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="leg leg-field field-wood" id="apps" aria-labelledby="apps-title" data-label="Apps">
+          <h2 id="apps-title">Apps from Otto Ops</h2>
+          <div class="apps">
+            <article class="app" aria-labelledby="mp-title">
+              <div class="app-mark">
+                <h3 id="mp-title">Meal Planner</h3>
+                <span class="status status-live">Live on Android and iOS</span>
+              </div>
+              <p>Meal Planner is for households that plan dinners together. You lay out the week, pull from a recipe library the whole household shares, and the plan becomes a grocery list that anyone in the house can check off at the store.</p>
+              <ul class="facts">
+                <li>A week plan with navigation across multiple weeks</li>
+                <li>A shared recipe library with tags and privacy controls, and Claude to parse a recipe you paste in</li>
+                <li>A grocery list built from the plan and checked against your pantry, so you skip what you already have</li>
+                <li>Household groups with invites and an avatar for each member</li>
+              </ul>
+              <p class="stack">Kotlin and Jetpack Compose on Android, SwiftUI and SwiftData on iOS, Firebase behind both.</p>
+              <ul class="links">
+                <li><a href="https://mealplanner.ottoops.com/privacy.html">Privacy policy</a></li>
+                <li><a href="https://mealplanner.ottoops.com/delete-account.html">Delete your account</a></li>
+              </ul>
+            </article>
+
+            <article class="app overprint" aria-labelledby="hq-title">
+              <div class="app-mark">
+                <h3 id="hq-title">Habit Quest</h3>
+                <span class="status status-dev">Early development</span>
+              </div>
+              <p>Habit Quest is a habit tracker built as an RPG. Each habit is a quest with a difficulty tier, finishing one pays out XP, gold and loot, and guilds take on raid quests together. You spend the gold in shops on a world map, like Gnome Depot and Flasks 5th Ave.</p>
+              <p class="stack">A React PWA plus an Expo app for phones, sharing the same game logic.</p>
+              <p class="note">It's early, so expect rough edges.</p>
+              <ul class="links">
+                <li><a href="https://ottoops.com/habit-quest/">Try the web build</a></li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="leg leg-field field-water" id="clearbridge" aria-labelledby="cb-title" data-label="ClearBridge">
+          <h2 id="cb-title">ClearBridge</h2>
+          <div class="cols">
+            <div>
+              <p class="intro">Sarah Otto and I co-founded ClearBridge Revenue Integrity Partners, a veteran-owned company in Denver that trains behavioral health teams on the revenue cycle.</p>
+              <p>Sarah built the ClearBridge Academy curriculum. As CTO, I build the cloud infrastructure, the data architecture and the Academy platform that delivers it, built for HIPAA compliance.</p>
+              <p><a class="btn" href="https://cbrip.com/">Visit cbrip.com</a></p>
+            </div>
+            <blockquote class="mission" cite="https://cbrip.com/partnership">
+              <p>To empower behavioral health organizations through professional-grade training and modern learning technology.</p>
+              <footer><span class="hydro">The ClearBridge mission</span></footer>
+            </blockquote>
+          </div>
+        </section>
+
+        <section class="leg" id="about" aria-labelledby="about-title" data-label="About">
+          <h2 id="about-title">About me</h2>
+          <div class="about">
+            <figure class="portrait">
+              <picture>
+                <source srcset="/assets/paul-otto.webp" type="image/webp">
+                <img src="/assets/paul-otto.jpg" width="640" height="800" loading="lazy" decoding="async" alt="Paul Otto, smiling, in a green quarter-zip sweater, with autumn cottonwoods behind him">
+              </picture>
+              <figcaption>Aurora, Colorado</figcaption>
+            </figure>
+            <div>
+              <p class="intro">I wrote my first paid code in 1992, as a teenager at EG&amp;G. From 1996 to 2003 I served in the US Army as an Armament Repair Section Sergeant.</p>
+              <p>After the Army I worked my way up the stack. I was an Oracle DBA at Qwest, a database engineer at Beatport, and a MySQL engineer at GoDaddy, where I supported MySQL on more than 2,400 high-traffic servers. Then I architected infrastructure and data services at TrackVia, ran my own consultancy, and walked Ticketmaster's teams from their own data centers to EC2, then to Kubernetes, then to EKS.</p>
+              <p>Because I've usually been the one paged when my systems break, I judge a design by whether a tired person can recover it at 3am. I've mentored military members, government civilians and contractors, and I count that as part of the job.</p>
+              <p>I live in Aurora, Colorado, and I've worked remotely for about ten years.</p>
+              <ul class="creds" aria-label="Education and service">
+                <li>MS, Organizational Leadership</li>
+                <li>BS, Business Administration, cum laude</li>
+                <li>US Army veteran</li>
+                <li>CompTIA Security+</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="leg" id="career" aria-labelledby="career-title" data-label="Career">
+          <h2 id="career-title">Career</h2>
+          <div class="survey" data-reveal>
+            <div class="survey-line"></div>
+            <div class="survey-ticks" aria-hidden="true"></div>
+            <ol>
+              <li class="a1" style="--y:1992"><div class="tag"><b>EG&amp;G</b><span>1992</span></div></li>
+              <li class="b1" style="--y:1996"><div class="tag"><b>US Army</b><span>1996</span></div></li>
+              <li class="a1" style="--y:2008"><div class="tag"><b>Qwest</b><span>2008</span></div></li>
+              <li class="b1" style="--y:2010"><div class="tag"><b>Beatport</b><span>2010</span></div></li>
+              <li class="a2" style="--y:2011"><div class="tag"><b>GoDaddy</b><span>2011</span></div></li>
+              <li class="b2" style="--y:2012"><div class="tag"><b>TrackVia</b><span>2012</span></div></li>
+              <li class="a1" style="--y:2014"><div class="tag"><b>Otto Ops LLC</b><span>2014</span></div></li>
+              <li class="b1" style="--y:2017"><div class="tag"><b>Ticketmaster</b><span>2017</span></div></li>
+              <li class="a1" style="--y:2020"><div class="tag"><b>Raft</b><span>2020</span></div></li>
+              <li class="b2 end" style="--y:2025"><div class="tag"><b>Clarity</b><span>2025</span></div></li>
+              <li class="a2 end" style="--y:2026"><div class="tag"><b>Amplify Federal</b><span>2026</span></div></li>
+            </ol>
+          </div>
+          <div class="survey-axis lettering" aria-hidden="true"><span>1992</span><span>2026</span></div>
+          <p>The full history, with what I did at each stop, is on <a href="/resume/">my resume</a>.</p>
+        </section>
+
+        <section class="leg" id="github" aria-labelledby="gh-title" data-label="GitHub">
+          <h2 id="gh-title">On GitHub</h2>
+          <div class="gh-stats">
+            <span class="gh-total" data-gh-total>9,485</span>
+            <span>contributions in the year to <span data-gh-date>November 8, 2026</span>, counted the way my <a href="https://github.com/potto007">GitHub profile</a> counts them, private repositories included.</span>
+          </div>
+          <figure class="calendar" data-calendar data-reveal>
+            <noscript><p>The contribution calendar needs JavaScript. My <a href="https://github.com/potto007">profile</a> has the same data.</p></noscript>
+          </figure>
+          <ul class="repos">
+            <li>
+              <a href="https://github.com/potto007/unridden">unridden</a> <span class="lang">Python</span>
+              <p>A decision API on Gemma 4 26B-A4B that reads answers from the label logits and never generates a token. It scored 0.931 accuracy on 1,286 questions across seven hand-written suites, at about 180 ms median per request on one RTX 5090.</p>
+            </li>
+            <li>
+              <a href="https://github.com/potto007/ottomation">ottomation</a> <span class="lang">Python</span>
+              <p>My Claude Code plugin marketplace, including live-vibe, a full-duplex voice plugin that stops on your first word.</p>
+            </li>
+            <li>
+              <a href="https://github.com/potto007/prehend">prehend</a> <span class="lang">Python</span>
+              <p>A recursive language model harness that adds experience memory and self-reflective program search to the MIT rlms engine.</p>
+            </li>
+            <li>
+              <span>Forks and the company org</span>
+              <p>I keep forks of <a href="https://github.com/potto007/llama.cpp">llama.cpp</a>, <a href="https://github.com/potto007/vllm">vllm</a> and <a href="https://github.com/potto007/herdr">herdr</a>. The <a href="https://github.com/OttoOps">OttoOps</a> organization holds the company repositories.</p>
+            </li>
+          </ul>
+        </section>
+
+        <section class="leg contact" id="contact" aria-labelledby="contact-title" data-label="Contact">
+          <h2 id="contact-title">Contact</h2>
+          <p>Email is the fastest way to reach me or Otto Ops, including for Meal Planner support.</p>
+          <a class="big-mail" href="mailto:info@ottoops.com">info@ottoops.com</a>
+        </section>
+      </div>
     </main>
-
-    <footer>
-      &copy; <span id="year">2026</span> Otto Ops LLC
-    </footer>
   </div>
-  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+
+  <footer class="collar-foot">
+    <div>
+      <p><strong>Otto Ops LLC</strong>. Mapped, edited and published by Otto Ops LLC, &copy; <span data-year>2026</span>.</p>
+      <p>Meal Planner <a href="https://mealplanner.ottoops.com/privacy.html">privacy policy</a> and <a href="https://mealplanner.ottoops.com/delete-account.html">account deletion</a>.</p>
+    </div>
+    <div>
+      <p>Contour data from the USGS 3D Elevation Program, served by AWS Terrain Tiles (Mapzen).</p>
+      <p>GitHub figures are a snapshot from <span data-gh-date>November 8, 2026</span>.</p>
+    </div>
+    <p class="lettering">Contour interval 200 feet</p>
+  </footer>
 </body>
 </html>
