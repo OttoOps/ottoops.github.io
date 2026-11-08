@@ -16,7 +16,7 @@
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..800;1,100,400..600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
   <link rel="preload" href="/assets/terrain.svg" as="fetch" crossorigin>
   <link rel="stylesheet" href="/assets/site.css">
   <script>
@@ -57,11 +57,13 @@
           <li><a href="#apps">Apps</a></li>
           <li><a href="#clearbridge">ClearBridge</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="/resume/">Resume</a></li>
+          <li class="nav-resume"><a href="/resume/">Resume</a></li>
           <li><a href="#github">GitHub</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
+      <a class="collar-act collar-email" href="mailto:info@ottoops.com">Email</a>
+      <a class="collar-act collar-resume" href="/resume/">Resume</a>
       <button class="theme-toggle" type="button" data-theme-toggle hidden>
         <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13Z" fill="currentColor"/></svg>
         <span data-theme-label>Theme</span>
@@ -72,13 +74,14 @@
   <div class="sheet">
     <main id="main">
       <section class="map" aria-labelledby="hero-title">
-        <div class="map-terrain" data-terrain></div>
+        <div class="map-terrain" data-terrain data-bounds="39.7072 39.5040 -105.8203 -105.4688"></div>
+        <p class="map-corner map-corner-nw" data-corner="nw" aria-hidden="true"></p>
+        <p class="map-corner map-corner-ne" data-corner="ne" aria-hidden="true"></p>
         <p class="map-title lettering"><strong>Otto Ops quadrangle</strong>Colorado<br>7.5-minute series</p>
         <div class="map-body">
           <h1 id="hero-title">Paul Otto</h1>
           <div class="lede-wrap">
             <p><span class="lede">I build and run data, AI and platform systems, and for most of my career I've carried the pager for what I designed.</span></p>
-            <p><span class="lede">Otto Ops LLC is my company. It makes Meal Planner, a meal planning app for households on Android and iOS.</span></p>
           </div>
           <div class="actions">
             <a class="btn btn-primary" href="mailto:info@ottoops.com">
@@ -91,6 +94,10 @@
             </a>
             <a class="btn" href="https://github.com/potto007">GitHub</a>
           </div>
+        </div>
+        <div class="scalebar lettering" data-scalebar aria-hidden="true" hidden>
+          <div class="bar"></div>
+          <div class="marks"><span>0</span><span>1</span><span>2 miles</span></div>
         </div>
         <p class="map-credit">Contours of the Mount Blue Sky area, Clear Creek County, Colorado, 200-foot interval, from USGS 3DEP elevation data via AWS Terrain Tiles.</p>
       </section>
@@ -167,7 +174,7 @@
               <p>Sarah built the ClearBridge Academy curriculum. As CTO, I build the cloud infrastructure, the data architecture and the Academy platform that delivers it, built for HIPAA compliance.</p>
               <p><a class="btn" href="https://cbrip.com/">Visit cbrip.com</a></p>
             </div>
-            <blockquote class="mission" cite="https://cbrip.com/partnership">
+            <blockquote class="mission" cite="https://cbrip.com/partnership.html">
               <p>To empower behavioral health organizations through professional-grade training and modern learning technology.</p>
               <footer><span class="hydro">The ClearBridge mission</span></footer>
             </blockquote>
@@ -208,7 +215,7 @@
               <li class="a1" style="--y:1992"><div class="tag"><b>EG&amp;G</b><span>1992</span></div></li>
               <li class="b1" style="--y:1996"><div class="tag"><b>US Army</b><span>1996</span></div></li>
               <li class="a1" style="--y:2008"><div class="tag"><b>Qwest</b><span>2008</span></div></li>
-              <li class="b1" style="--y:2010"><div class="tag"><b>Beatport</b><span>2010</span></div></li>
+              <li class="b1 end" style="--y:2010"><div class="tag"><b>Beatport</b><span>2010</span></div></li>
               <li class="a2" style="--y:2011"><div class="tag"><b>GoDaddy</b><span>2011</span></div></li>
               <li class="b2" style="--y:2012"><div class="tag"><b>TrackVia</b><span>2012</span></div></li>
               <li class="a1" style="--y:2014"><div class="tag"><b>Otto Ops LLC</b><span>2014</span></div></li>

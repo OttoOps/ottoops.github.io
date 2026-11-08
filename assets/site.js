@@ -59,11 +59,56 @@
         terrain.innerHTML = text;
         const index = terrain.querySelectorAll(".c-index");
         index.forEach((p, i) => p.style.setProperty("--d", String((i % 23) * 60)));
+        frameMap();
       })
       .catch(() => {
         /* the hero still reads as a plain sheet */
       });
   }
+
+  // Corner coordinates and a scale bar for the part of the sheet in view. The
+  // SVG is 512x384 Web Mercator units, cropped by preserveAspectRatio "slice".
+  const VB_W = 512;
+  const VB_H = 384;
+  const MILE_KM = 1.609344;
+  const merc = (lat) => Math.log(Math.tan(Math.PI / 4 + (lat * Math.PI) / 360));
+  const unmerc = (m) => (Math.atan(Math.sinh(m)) * 180) / Math.PI;
+  const dms = (v, pos, neg) => {
+    const a = Math.abs(v);
+    let d = Math.floor(a);
+    let m = Math.floor((a - d) * 60);
+    let s = Math.round(((a - d) * 60 - m) * 60);
+    if (s === 60) { s = 0; m += 1; }
+    if (m === 60) { m = 0; d += 1; }
+    const pad = (n) => String(n).padStart(2, "0");
+    return `${d}\u00b0${pad(m)}\u2032${pad(s)}\u2033 ${v < 0 ? neg : pos}`;
+  };
+  const frameMap = () => {
+    if (!terrain || !terrain.dataset.bounds || !terrain.firstElementChild) return;
+    const [n, s, w, e] = terrain.dataset.bounds.split(" ").map(Number);
+    const cw = terrain.clientWidth;
+    const ch = terrain.clientHeight;
+    if (!cw || !ch) return;
+    const k = Math.max(cw / VB_W, ch / VB_H);
+    const x0 = (VB_W - cw / k) / 2;
+    const y0 = (VB_H - ch / k) / 2;
+    const lonAt = (x) => w + ((e - w) * x) / VB_W;
+    const top = unmerc(merc(n) + ((merc(s) - merc(n)) * y0) / VB_H);
+    const corners = {
+      nw: `${dms(top, "N", "S")}<br>${dms(lonAt(x0), "E", "W")}`,
+      ne: `${dms(top, "N", "S")}<br>${dms(lonAt(VB_W - x0), "E", "W")}`,
+    };
+    document.querySelectorAll("[data-corner]").forEach((c) => {
+      c.innerHTML = corners[c.dataset.corner] || "";
+    });
+    // Ground distance per SVG unit at the sheet's mid latitude.
+    const kmPerUnit = ((e - w) * 111.32 * Math.cos(((n + s) * Math.PI) / 360)) / VB_W;
+    const bar = document.querySelector("[data-scalebar]");
+    if (bar) {
+      bar.style.width = `${((2 * MILE_KM) / kmPerUnit) * k}px`;
+      bar.hidden = false;
+    }
+  };
 
   // ---- Reveals: mark sections once the route reaches them -------------------
   const reached = new Set();
@@ -96,8 +141,8 @@
     const h = wrap.clientHeight;
     const legs = [...wrap.querySelectorAll(".leg")];
     const top = wrap.getBoundingClientRect().top + window.scrollY;
-    const left = Math.max(10, w * 0.3);
-    const right = Math.max(18, w * 0.62);
+    const left = Math.max(10, w * 0.18);
+    const right = Math.max(18, w * 0.82);
     const pts = legs.map((leg, i) => {
       const heading = leg.querySelector("h2");
       const y = heading.getBoundingClientRect().top + window.scrollY - top + heading.offsetHeight / 2;
@@ -127,9 +172,12 @@
     const marks = pts.map((p) => {
       const g = el("g", { class: "bm", transform: `translate(${p.x} ${p.y})` });
       g.append(el("path", { d: "M0 -7L6.5 4.5H-6.5Z" }));
+      g.append(el("circle", { cx: 0, cy: 0.5, r: 1.6 }));
       if (w >= 60) {
-        // Lettering follows the line, as on a map: rotated, reading up from the mark.
-        const t = el("text", { x: 14, y: 3.5, transform: "rotate(-90)" });
+        // Lettering follows the line, as on a map: rotated, reading up from the
+        // mark, set beside the stroke on the side with more room.
+        const side = p.x > w / 2 ? -11 : 20;
+        const t = el("text", { x: 14, y: side, transform: "rotate(-90)" });
         t.textContent = (p.leg.dataset.label || "").toUpperCase();
         g.append(t);
       }
@@ -264,7 +312,10 @@
   let resizeTimer = 0;
   window.addEventListener("resize", () => {
     clearTimeout(resizeTimer);
-    resizeTimer = window.setTimeout(buildRoute, 150);
+    resizeTimer = window.setTimeout(() => {
+      buildRoute();
+      frameMap();
+    }, 150);
   });
   window.addEventListener("load", buildRoute);
   if (document.fonts) document.fonts.ready.then(buildRoute);
