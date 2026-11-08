@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Paul Otto · Resume</title>
+  <meta name="description" content="Resume of Paul Otto: principal platform engineer, AI/ML engineer and founder of Otto Ops LLC. More than 30 years of data, infrastructure and software work.">
+  <link rel="canonical" href="https://ottoops.com/resume/">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Paul Otto · Resume">
+  <meta property="og:url" content="https://ottoops.com/resume/">
+  <meta name="theme-color" content="#f7f7f2" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121513" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..800;1,100,400..600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script>
+    try {
+      var t = localStorage.getItem("theme");
+      if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
+  <script src="/assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="collar">
+    <a class="wordmark" href="/" aria-label="Otto Ops LLC, home">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 18.5 17H1.5Z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="10" cy="12" r="1.8" fill="currentColor"/></svg>
+      Otto Ops LLC
+    </a>
+    <div class="collar-end">
+      <nav aria-label="Site">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/resume/" aria-current="page">Resume</a></li>
+          <li><a href="/#github">GitHub</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle hidden>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13Z" fill="currentColor"/></svg>
+        <span data-theme-label>Theme</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="sheet">
+    <main id="main" class="resume">
+      <div class="resume-head">
+        <div>
+          <h1>Paul Otto</h1>
+          <p class="role">Platform engineer, AI/ML engineer and founder of Otto Ops LLC</p>
+        </div>
+        <address>
+          Aurora, Colorado<br>
+          <a href="mailto:info@ottoops.com">info@ottoops.com</a><br>
+          <a href="https://github.com/potto007">github.com/potto007</a><br>
+          <button class="btn no-print" type="button" data-print hidden>Print or save as PDF</button>
+        </address>
+      </div>
+
+      <section aria-labelledby="r-summary">
+        <h2 id="r-summary">Summary</h2>
+        <div>
+          <p>I'm a data, infrastructure and software architect with more than 30 years of hands-on work, and for most of it I also ran what I designed. I lead platform teams and still read the code and the logs. Today I work on Kubernetes platforms for defense systems, and I train and serve domain-adapted open-weight models on local hardware.</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="r-exp">
+        <h2 id="r-exp">Experience</h2>
+        <div>
+          <article class="job">
+            <header><h3>Principal Platform Engineer</h3><span class="when">Jul 2026 to present</span></header>
+            <p class="org">Amplify Federal</p>
+          </article>
+
+          <article class="job">
+            <header><h3>Principal AI/ML Engineer and Founder</h3><span class="when">Mar 2014 to present</span></header>
+            <p class="org">Otto Ops LLC, Aurora, Colorado</p>
+            <ul>
+              <li>Built an end-to-end LLM fine-tuning pipeline with teacher-student trajectory generation, SFT, DPO, continued pretraining, SLERP merging, GGUF export and automated benchmark evaluation.</li>
+              <li>Built a 4-bit QLoRA training harness for Gemma 4's fused-expert mixture-of-experts layers that fine-tunes a 19B-parameter model on one 32 GB consumer GPU.</li>
+              <li>Developed a recursive language model (RLM and SRLM) training and inference framework with multi-trajectory generation, uncertainty-guided selection, context-length routing and map-reduce orchestration.</li>
+              <li>Run self-hosted inference on llama.cpp in router mode with Flash Attention and a quantized KV cache. Prometheus, Grafana, Loki and Alertmanager watch it, and VRAM watchdogs catch spills to system memory during overnight training runs.</li>
+              <li>From 2014 to 2017, consulted on big data pipelines and DevOps for enterprise clients. I built and ran big data infrastructure across three on-premise data centers, set up DevOps process and tooling for an advanced data analytics organization, and wrote and taught a Puppet curriculum on site for a Fortune 50 customer.</li>
+            </ul>
+          </article>
+
+          <article class="job">
+            <header><h3>Co-Founder and CTO</h3><span class="when"><span class="placeholder">[START YEAR]</span> to present</span></header>
+            <p class="org">ClearBridge Revenue Integrity Partners, Denver, Colorado</p>
+            <ul>
+              <li>Build the cloud infrastructure, data architecture and automation for the company, including the ClearBridge Academy learning platform, built for HIPAA compliance.</li>
+              <li>Architected a retrieval knowledge base for behavioral health billing regulations on LightRAG, with Neo4j knowledge graphs, Milvus vector search, bge-m3 embeddings and entity extraction across 18 domain entity types.</li>
+              <li>Built the Academy's AI features, including Gemini TTS narration, Moshi speech recognition and GPU document processing with Docling and MinerU.</li>
+            </ul>
+          </article>
+
+          <article class="job">
+            <header><h3>Principal Platform Engineer and Engineering Manager</h3><span class="when">Mar 2025 to Jul 2026</span></header>
+            <p class="org">Clarity, Columbia, Maryland (remote)</p>
+            <ul>
+              <li>Led a distributed team of platform engineers on military systems.</li>
+              <li>Lead engineer for the ADCP SRE organization at Kessel Run, US Air Force. Mentored military members, government civilians and contractors.</li>
+              <li>Designed and built observability platforms on Kubernetes with Elastic, deployed with ArgoCD, FluxV2 and Terraform.</li>
+            </ul>
+          </article>
+
+          <article class="job">
+            <header><h3>Director of Engineering</h3><span class="when">Sep 2020 to Jan 2025</span></header>
+            <p class="org">Raft, McLean, Virginia (remote)</p>
+            <ul>
+              <li>Wrote and presented proposals to government evaluation boards that won two SBIRs and the Cloud CITI 2.0 contract, with both option periods.</li>
+              <li>Principal Architect and technical lead for Public Cloud ADCP at Kessel Run, US Air Force. Built Kessel Run's Zero Trust Network Architecture.</li>
+              <li>Served as the subject matter expert on PlatformOne deployment patterns for a small team that launched an open source bare-metal private cloud edge node at the Air Force Shadow Operations Center, a test case for globally distributed C2.</li>
+              <li>Led a growing team of software and systems engineers. Integrated Confluent Platform (Kafka), Istio and Kubernetes, deployed with Ansible, ArgoCD, FluxV2 and Terraform.</li>
+            </ul>
+          </article>
+
+          <article class="job">
+            <header><h3>Senior Systems Architect</h3><span class="when">Apr 2017 to Sep 2020</span></header>
+            <p class="org">Ticketmaster, Hollywood, California (remote)</p>
+            <ul>
+              <li>Led engineering of the secrets management service in Q4 2019 that put Ticketmaster in CCPA compliance for January 2020.</li>
+              <li>Managed a high-priority AWS cost management project and coordinated its rollout with more than 20 teams worldwide.</li>
+              <li>Architected log usage metrics and chargeback services, and wrote the log usage tracking, metrics transmission and throttling code.</li>
+              <li>Moved development teams from on-premise to EC2, from EC2 to Tectonic Kubernetes, and from Kubernetes to AWS EKS. Field-tested EKS and rolled it out as Ticketmaster's primary platform.</li>
+              <li>Wrote backend services in Go and Python and mentored colleagues across the company in Go and cloud native practice.</li>
+            </ul>
+          </article>
+
+          <article class="job">
+            <header><h3>Infrastructure and Data Services Architect</h3><span class="when">Dec 2012 to Jan 2014</span></header>
+            <p class="org">TrackVia, Denver, Colorado</p>
+            <ul>
+              <li>Architected data services on Galera (Percona XtraDB Cluster), MySQL 5.6, HAProxy with Keepalived, and Hadoop.</li>
+              <li>Architected the AWS infrastructure for TrackVia's new product, including VPC, EC2, CloudFormation, IAM, RDS, EMR and S3, automated with Boto, Ansible and Puppet.</li>
+              <li>Managed infrastructure, data services and production operations, and mentored engineers in operations and DevOps practice.</li>
+            </ul>
+          </article>
+
+          <article class="job">
+            <header><h3>Senior MySQL Engineer and DBA</h3><span class="when">Mar 2011 to Dec 2012</span></header>
+            <p class="org">GoDaddy, Denver, Colorado</p>
+            <ul>
+              <li>Supported CentOS Linux and MySQL on more than 2,400 high-traffic servers, and automated operations with Bash, Perl, PHP and Python.</li>
+              <li>Planned upgrades across MySQL 4.0, 4.1, 5.0 and 5.1, and from MyISAM to InnoDB.</li>
+              <li>Led a team of MySQL engineers building an internal service to manage every MySQL asset, and set the department's git practices.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="r-earlier">
+        <h2 id="r-earlier">Earlier</h2>
+        <ul class="earlier">
+          <li><span>Database Engineer, Beatport</span><span class="when">Jan 2010 to Mar 2011</span></li>
+          <li><span>Software Engineer and Oracle DBA, Qwest Communications</span><span class="when">Feb 2008 to Jan 2010</span></li>
+          <li><span>Software Engineer, MarketBiz</span><span class="when">Nov 2003 to May 2007</span></li>
+          <li><span>Armament Repair Section Sergeant, US Army</span><span class="when">Sep 1996 to Dec 2003</span></li>
+          <li><span>Software Engineer, Sedona Software</span><span class="when">May 1995 to Sep 1996</span></li>
+          <li><span>Software Developer, RCF Information Systems</span><span class="when">Jun 1994 to May 1995</span></li>
+          <li><span>Software Developer, Craftsman Software</span><span class="when">Mar 1993 to Jun 1994</span></li>
+          <li><span>Software Developer, EG&amp;G</span><span class="when">May 1992 to Sep 1992</span></li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="r-oss">
+        <h2 id="r-oss">Open source</h2>
+        <div class="job">
+          <ul>
+            <li><a href="https://github.com/potto007/unridden">Unridden</a>, an Apache-2.0 decision API on Gemma 4 26B-A4B that runs prefill only and reads the answer from the label logits. It scored 0.931 accuracy on 1,286 questions across seven hand-written suites, at about 180 ms median per request on one RTX 5090.</li>
+            <li><a href="https://github.com/potto007/ottomation">live-vibe</a>, a full-duplex voice plugin for Claude Code that runs on CUDA or Apple silicon.</li>
+            <li><a href="https://github.com/potto007/prehend">prehend</a>, a recursive language model harness with experience memory and self-reflective program search.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section aria-labelledby="r-skills">
+        <h2 id="r-skills">Skills</h2>
+        <dl class="skills">
+          <div><dt>Model training</dt><dd>PyTorch, Hugging Face Transformers, TRL, PEFT, bitsandbytes, Liger-Kernel. SFT, DPO, QLoRA, continued pretraining, SLERP merging, mixture of experts, GGUF quantization.</dd></div>
+          <div><dt>AI infrastructure and retrieval</dt><dd>llama.cpp, CUDA, Flash Attention, KV cache tuning, LightRAG, Milvus, Neo4j, bge-m3, Model Context Protocol.</dd></div>
+          <div><dt>Platform</dt><dd>Kubernetes and EKS, Docker, Terraform, ArgoCD, FluxV2, Ansible, Puppet, Istio, Consul, Vault, Keycloak, AWS.</dd></div>
+          <div><dt>Observability</dt><dd>Prometheus, Grafana, Loki, Alertmanager, Elastic.</dd></div>
+          <div><dt>Data</dt><dd>MySQL, Galera and Percona XtraDB Cluster, Redis, Cassandra, Kafka, Spark, Hadoop, Druid.</dd></div>
+          <div><dt>Languages</dt><dd>Python, Go, Rust, Elixir, C, Java, Scala, SQL, Bash, Perl.</dd></div>
+        </dl>
+      </section>
+
+      <section aria-labelledby="r-edu">
+        <h2 id="r-edu">Education</h2>
+        <ul class="earlier">
+          <li><span>MS, Organizational Leadership, IT specialization, Colorado State University Global Campus</span><span class="when">2013</span></li>
+          <li><span>BS, Business Administration, cum laude, California State University San Marcos</span><span class="when">2007</span></li>
+          <li><span>CompTIA Security+</span><span class="when"></span></li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <footer class="collar-foot">
+    <div><p><strong>Otto Ops LLC</strong>, &copy; <span data-year>2026</span>.</p></div>
+    <div><p><a href="/">Back to ottoops.com</a></p></div>
+  </footer>
+</body>
+</html>
