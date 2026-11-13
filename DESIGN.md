@@ -30,7 +30,9 @@ numbers run at `font-stretch: 112%`, weight 800. Body is 100% width, 17px/1.62,
 - Collar: header and footer outside the neatline (`.sheet`, 1px rule with
   corner ticks).
 - Legend: bordered rows with a drawn map symbol per row.
-- Benchmark triangle: wordmark, favicon, route waypoints.
+- Summit mark: an O ring with a two-peak ridge inside. Wordmark and favicon.
+- Benchmark triangle: route waypoints only. Never as a logo: on its own it
+  reads as a warning sign.
 - Survey line: career timeline on a year axis; vertical list under 860px.
 - Overprint: dashed purple panel for in-progress work.
 - Shaded relief: a canvas under the hero contours, shaded from the elevation
