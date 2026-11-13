@@ -31,6 +31,9 @@ numbers run at `font-stretch: 112%`, weight 800. Body is 100% width, 17px/1.62,
   corner ticks).
 - Legend: bordered rows with a drawn map symbol per row.
 - Summit mark: an O ring with a two-peak ridge inside. Wordmark and favicon.
+- Share card: `assets/og-card.jpg`, 1200x630, "Otto Ops" over an illustrated
+  contour sheet. Illustrative terrain, so it stays off the page itself, where
+  every contour is real 3DEP data.
 - Benchmark triangle: route waypoints only. Never as a logo: on its own it
   reads as a warning sign.
 - Survey line: career timeline on a year axis; vertical list under 860px.

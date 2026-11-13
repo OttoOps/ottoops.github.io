@@ -1,2 +1,5 @@
 .playwright-mcp/
 .impeccable/config.local.json
+
+# Generated artwork candidates: review locally, commit only what ships.
+docs/artwork/candidates/
