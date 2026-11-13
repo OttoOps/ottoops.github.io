@@ -2,7 +2,7 @@
 # requires-python = ">=3.11"
 # dependencies = ["numpy", "pillow", "contourpy"]
 # ///
-"""Build assets/terrain.svg: contour lines of the Mount Blue Sky area, Colorado.
+"""Build the Mount Blue Sky terrain: assets/terrain.svg and terrain-dem.bin.gz.
 
 Elevation comes from the public AWS Terrain Tiles (Terrarium encoding), whose
 US source is USGS 3DEP. Run with `uv run scripts/make_terrain.py`. The output is
@@ -11,6 +11,7 @@ committed; GitHub Pages serves it as a static file.
 
 from __future__ import annotations
 
+import gzip
 import io
 import math
 import urllib.request
@@ -27,6 +28,8 @@ INTERVAL_FT = 200
 INDEX_EVERY = 5  # every fifth line is an index contour (1,000 ft)
 SCALE = 0.5  # output units per source pixel
 OUT = Path(__file__).resolve().parent.parent / "assets" / "terrain.svg"
+DEM_OUT = OUT.with_name("terrain-dem.bin.gz")
+DEM_STEP = 4  # source pixels per elevation cell
 URL = "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png"
 
 
@@ -74,6 +77,22 @@ def simplify(pts: np.ndarray, tol: float) -> np.ndarray:
     return np.vstack([start, end])
 
 
+def write_dem(feet: np.ndarray) -> None:
+    """Write the elevation grid the page reads for hill shading and readouts.
+
+    One cell per DEM_STEP source pixels, in whole feet. Stored as gzipped
+    little-endian int16 deltas in row order: each value is the difference from
+    the cell before it, which compresses far better than the raw heights.
+    """
+    h, w = feet.shape
+    grid = feet.reshape(h // DEM_STEP, DEM_STEP, w // DEM_STEP, DEM_STEP).mean((1, 3))
+    flat = np.rint(grid).astype(np.int32).ravel()
+    deltas = np.diff(flat, prepend=0).astype("<i2")
+    DEM_OUT.write_bytes(gzip.compress(deltas.tobytes(), 9, mtime=0))
+    print(f"wrote {DEM_OUT} {DEM_OUT.stat().st_size / 1024:.0f} KiB, "
+          f"{grid.shape[1]}x{grid.shape[0]}, peak {flat.max()} ft")
+
+
 def main() -> None:
     cx, cy = tile_of(*CENTER, ZOOM)
     x0, y0 = int(cx) - TILES_X // 2, int(cy) - TILES_Y // 2
@@ -81,7 +100,8 @@ def main() -> None:
         np.hstack([fetch(x0 + i, y0 + j) for i in range(TILES_X)])
         for j in range(TILES_Y)
     ]
-    feet = blur(np.vstack(rows)) * 3.28084
+    raw = np.vstack(rows) * 3.28084
+    feet = blur(raw)
     h, w = feet.shape
     gen = contourpy.contour_generator(z=feet, line_type="Separate")
     lo = math.ceil(feet.min() / INTERVAL_FT) * INTERVAL_FT
@@ -96,6 +116,7 @@ def main() -> None:
             d = "M" + "L".join(f"{x:.1f} {y:.1f}" for x, y in pts)
             (out_index if is_index else out_minor).append(d)
     vw, vh = w * SCALE, h * SCALE
+    write_dem(raw)
     sx, sy = (cx - x0) * 256 * SCALE, (cy - y0) * 256 * SCALE
     summit = (
         f'<g class="summit" transform="translate({sx:.1f} {sy:.1f})">'

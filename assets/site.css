@@ -313,9 +313,118 @@ p {
   position: relative;
   min-height: clamp(560px, calc(100svh - 120px), 900px);
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto 1fr auto auto;
   overflow: hidden;
   border-bottom: 1px solid var(--rule);
+}
+
+.map-relief {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1.4s var(--ease-out);
+}
+
+.map-relief.is-in {
+  opacity: 1;
+}
+
+.map-marks {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Crosshair: two hairlines through the pointer, the full sheet wide and tall. */
+.map-hair {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  transition: opacity 0.2s var(--ease-out);
+}
+
+.map-marks.is-live .map-hair {
+  opacity: 1;
+}
+
+.map-hair::before,
+.map-hair::after {
+  content: "";
+  position: absolute;
+  background: color-mix(in srgb, var(--ink) 38%, transparent);
+}
+
+.map-hair::before {
+  left: -200vw;
+  width: 400vw;
+  top: 0;
+  height: 1px;
+}
+
+.map-hair::after {
+  top: -200vh;
+  height: 400vh;
+  left: 0;
+  width: 1px;
+}
+
+/* Spot elevation: a small cross with its height beside it, in contour brown. */
+.map-spot {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-left: 9px;
+  margin-top: -0.62em;
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.24;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  text-shadow: 0 0 3px var(--paper), 0 0 1px var(--paper), 0 0 6px var(--paper);
+}
+
+.map-spot::before {
+  content: "";
+  position: absolute;
+  left: -4px;
+  top: calc(0.62em - 4px);
+  width: 9px;
+  height: 9px;
+  background:
+    linear-gradient(45deg, transparent 44%, currentColor 44% 56%, transparent 56%),
+    linear-gradient(-45deg, transparent 44%, currentColor 44% 56%, transparent 56%);
+}
+
+.map-read {
+  position: relative;
+  margin: 0;
+  padding: 0 22px 10px;
+  max-width: 62ch;
+  min-height: calc(2.8em + 10px);
+  align-content: end;
+  color: var(--ink);
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+  white-space: pre-wrap;
+  text-shadow: 0 0 6px var(--paper), 0 0 2px var(--paper), 0 0 10px var(--paper);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .js .map {
+    cursor: crosshair;
+  }
+
+  .js .map :is(h1, p) {
+    cursor: auto;
+  }
 }
 
 .map-terrain {
@@ -911,6 +1020,56 @@ p {
   text-align: right;
 }
 
+.stop-btn {
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.stop-btn b {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--survey) 55%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.2s var(--ease-out);
+}
+
+.stop-btn:hover b,
+.is-chosen .stop-btn b {
+  text-decoration-color: var(--survey);
+  text-decoration-thickness: 2px;
+}
+
+.survey li.is-chosen::before {
+  background: var(--survey);
+}
+
+.stop-card {
+  max-width: 66ch;
+  margin: 0 0 28px;
+  padding: 16px 20px;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+}
+
+.stop-card p {
+  margin: 0;
+}
+
+.stop-card p + p {
+  margin-top: 8px;
+  color: var(--ink-2);
+}
+
+.stop-head b {
+  display: block;
+  font-size: 1.1rem;
+}
+
 .survey-axis {
   display: flex;
   justify-content: space-between;
@@ -973,6 +1132,11 @@ p {
 .cal-grid i[data-l="2"] { background: var(--cell-2); }
 .cal-grid i[data-l="3"] { background: var(--cell-3); }
 .cal-grid i[data-l="4"] { background: var(--cell-4); }
+
+.cal-grid i.is-read {
+  outline: 2px solid var(--survey);
+  outline-offset: 1px;
+}
 
 .cal-key {
   display: flex;
@@ -1536,5 +1700,21 @@ p {
   a {
     color: inherit;
     text-decoration: none;
+  }
+}
+
+/* ---------- Interactive map and career stops: narrow and still ---------- */
+
+@media (max-width: 860px) {
+  .survey li .stop-card {
+    margin: 10px 0 4px;
+    white-space: normal;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map-relief,
+  .map-hair {
+    transition: none;
   }
 }

@@ -33,6 +33,12 @@ numbers run at `font-stretch: 112%`, weight 800. Body is 100% width, 17px/1.62,
 - Benchmark triangle: wordmark, favicon, route waypoints.
 - Survey line: career timeline on a year axis; vertical list under 860px.
 - Overprint: dashed purple panel for in-progress work.
+- Shaded relief: a canvas under the hero contours, shaded from the elevation
+  grid. Warm brown shadows on the light sheet, faint lights on the dark one.
+- Readout: one line of map lettering in the hero with the pointer's latitude,
+  longitude and elevation. A click leaves a spot elevation (cross and height).
+- Stop card: bordered record under the career line for the chosen stop. Role,
+  dates and one line, all copied from the resume.
 
 ## Motion
 
@@ -41,8 +47,17 @@ draw in once. Section heads wipe in, field tints print downward, the survey line
 and calendar fill on first view. Everything is static and fully visible under
 `prefers-reduced-motion` or without JavaScript.
 
+## Interaction
+
+The hero is the one authored moment: the light on the relief follows the
+pointer and returns to the northwest when it leaves. Under reduced motion the
+light stays in the northwest; readouts and spot elevations still work. Career
+stops are buttons. Pointing at a calendar day reads its date and count in the
+caption line. None of it carries content a visitor can't get without it.
+
 ## Data
 
-- `scripts/make_terrain.py` regenerates `assets/terrain.svg` from AWS Terrain
-  Tiles (USGS 3DEP). Run with `uv run`.
+- `scripts/make_terrain.py` regenerates `assets/terrain.svg` and the elevation
+  grid `assets/terrain-dem.bin.gz` (256x192 cells, whole feet, gzipped int16
+  deltas) from AWS Terrain Tiles (USGS 3DEP). Run with `uv run`.
 - `scripts/github_snapshot.py` regenerates `assets/github.json` through `gh`.
